@@ -110,7 +110,7 @@ app.use('/graphql', graphqlHttp({
 
 
 app.get("/", (req, res, next) => {
-      res.send("Hello world")
+      res.send("Hello worlds")
 })
 app.listen(port, () => {
       console.log(`Server is runnig on ${port}`)
