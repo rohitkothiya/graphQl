@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const port = 3010
 const mongoose = require("mongoose");
 const app = express();
-
+const isAuth = require("./middleware/is-auth")
 const graphQlSchema = require('./graphql/schema/index')
 const graphQlResolvers = require('./graphql/resolvers/index')
 
@@ -15,7 +15,7 @@ const graphqlHttp = require('express-graphql');
 
 app.use(bodyParser.json())
 
-
+app.use(isAuth)
 
 const dbConnectionUri = "mongodb://rohitk:rohitk416@ds051831.mlab.com:51831/user-manager";
 const options = {
