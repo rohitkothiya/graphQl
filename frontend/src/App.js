@@ -50,7 +50,7 @@ class App extends Component {
                   <Route path="/bookings" component={BookingsPage} />
                 )}
                 {!this.state.token && <Redirect to="/auth" exact />}
-              </Switch>
+                </Switch>
             </main>
           </AuthContext.Provider>
         </React.Fragment>
