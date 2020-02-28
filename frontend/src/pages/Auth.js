@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import './Auth.css';
-import AuthContext from '../context/auth-context';
+import "./Auth.css";
+import AuthContext from "../context/auth-context";
 
 class AuthPage extends Component {
   state = {
@@ -56,16 +56,16 @@ class AuthPage extends Component {
       };
     }
 
-    fetch('http://localhost:3010/graphql', {
-      method: 'POST',
+    fetch("http://localhost:3010/graphql", {
+      method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+          throw new Error("Failed!");
         }
         return res.json();
       })
@@ -97,7 +97,7 @@ class AuthPage extends Component {
         <div className="form-actions">
           <button type="submit">Continue</button>
           <button type="button" onClick={this.switchModeHandler}>
-            Switch to {this.state.isLogin ? 'Signup' : 'Login'}
+            Switch to {this.state.isLogin ? "Signup" : "Login"}
           </button>
         </div>
       </form>
