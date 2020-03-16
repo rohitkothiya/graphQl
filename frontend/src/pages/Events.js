@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import Modal from '../components/Modal/Modal';
-import Backdrop from '../components/Backdrop/Backdrop';
-import EventList from '../components/Events/EventList/EventList';
-import Spinner from '../components/Spinner/Spinner';
-import AuthContext from '../context/auth-context';
-import './Events.css';
+import Modal from "../components/Modal/Modal";
+import Backdrop from "../components/Backdrop/Backdrop";
+import EventList from "../components/Events/EventList/EventList";
+import Spinner from "../components/Spinner/Spinner";
+import AuthContext from "../context/auth-context";
+import "./Events.css";
 
 class EventsPage extends Component {
   state = {
@@ -35,7 +35,7 @@ class EventsPage extends Component {
   };
 
   modalConfirmHandler = () => {
-    console.log("called")
+    console.log("called");
     this.setState({ creating: false });
     const title = this.titleElRef.current.value;
     const price = +this.priceElRef.current.value;
@@ -70,17 +70,17 @@ class EventsPage extends Component {
 
     const token = this.context.token;
 
-    fetch('http://localhost:3010/graphql', {
-      method: 'POST',
+    fetch("http://localhost:3010/graphql", {
+      method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + token
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + token
       }
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+          throw new Error("Failed!");
         }
         return res.json();
       })
@@ -129,16 +129,16 @@ class EventsPage extends Component {
         `
     };
 
-    fetch('http://localhost:3010/graphql', {
-      method: 'POST',
+    fetch("http://localhost:3010/graphql", {
+      method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json"
       }
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+          throw new Error("Failed!");
         }
         return res.json();
       })
@@ -180,17 +180,17 @@ class EventsPage extends Component {
         `
     };
 
-    fetch('http://localhost:3010/graphql', {
-      method: 'POST',
+    fetch("http://localhost:3010/graphql", {
+      method: "POST",
       body: JSON.stringify(requestBody),
       headers: {
-        'Content-Type': 'application/json',
-        Authorization: 'Bearer ' + this.context.token
+        "Content-Type": "application/json",
+        Authorization: "Bearer " + this.context.token
       }
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error('Failed!');
+          throw new Error("Failed!");
         }
         return res.json();
       })
@@ -251,11 +251,11 @@ class EventsPage extends Component {
             canConfirm
             onCancel={this.modalCancelHandler}
             onConfirm={this.bookEventHandler}
-            confirmText={this.context.token ? 'Book' : 'Confirm'}
+            confirmText={this.context.token ? "Book" : "Confirm"}
           >
             <h1>{this.state.selectedEvent.title}</h1>
             <h2>
-              ${this.state.selectedEvent.price} -{' '}
+              ${this.state.selectedEvent.price} -{" "}
               {new Date(this.state.selectedEvent.date).toLocaleDateString()}
             </h2>
             <p>{this.state.selectedEvent.description}</p>
@@ -266,18 +266,18 @@ class EventsPage extends Component {
           <p>Share your own Events!</p>
           <button className="btn" onClick={this.startCreateEventHandler}>
             Create Event
-            </button>
+          </button>
         </div>
         {/* )} */}
         {this.state.isLoading ? (
           <Spinner />
         ) : (
-            <EventList
-              events={this.state.events}
-              authUserId={this.context.userId}
-              onViewDetail={this.showDetailHandler}
-            />
-          )}
+          <EventList
+            events={this.state.events}
+            authUserId={this.context.userId}
+            onViewDetail={this.showDetailHandler}
+          />
+        )}
       </React.Fragment>
     );
   }

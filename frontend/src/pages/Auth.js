@@ -65,7 +65,7 @@ class AuthPage extends Component {
     })
       .then(res => {
         if (res.status !== 200 && res.status !== 201) {
-          throw new Error("Something went wrong Failed!");
+          throw new Error(" Failed!");
         }
         return res.json();
       })
@@ -97,7 +97,7 @@ class AuthPage extends Component {
         <div className="form-actions">
           <button type="submit">Continue</button>
           <button type="button" onClick={this.switchModeHandler}>
-            Switch to {this.state.isLogin ? "Signup" : "Login"}
+            Switch to {this.state.isLogin ? "Signin" : "Login"}
           </button>
         </div>
       </form>
