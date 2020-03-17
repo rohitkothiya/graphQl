@@ -226,7 +226,7 @@ class EventsPage extends Component {
                 <input type="text" id="title" ref={this.titleElRef} />
               </div>
               <div className="form-control">
-                <label htmlFor="price">price</label>
+                <label htmlFor="price">Price</label>
                 <input type="number" id="price" ref={this.priceElRef} />
               </div>
               <div className="form-control">
