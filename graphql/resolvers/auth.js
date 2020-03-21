@@ -26,13 +26,13 @@ module.exports = {
   login: async ({ email, password }) => {
     const user = await User.findOne({ email: email });
     if (!user) {
-      throw new Error("Users does not exists");
+      throw new Error("User does not exists");
     }
 
     const isEqual = await bcrypt.compare(password, user.password);
 
     if (!isEqual) {
-      throw new Error("Password is incorrecta");
+      throw new Error("Password is incorrected");
     }
     const token = jwt.sign(
       { userId: user.id, email: user.email },

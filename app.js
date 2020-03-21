@@ -31,7 +31,7 @@ const connectWithRetry = () => {
   mongoose
     .connect(dbConnectionUri, options)
     .then(() => {
-      console.log("MongoDB is connected now ");
+      console.log("MongoDB is connected  ");
     })
     .catch(err => {
       console.log(
