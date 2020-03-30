@@ -15,7 +15,7 @@ module.exports = {
       });
     } catch (err) {
       throw err;
-    }
+    } 
   },
   bookEvent: async (args, req) => {
     // if (!req.isAuth) {
