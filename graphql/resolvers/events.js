@@ -31,7 +31,7 @@ module.exports = {
       const creator = await User.findById("5e4b824b7623400d7a111f77");
 
       if (!creator) {
-        throw new Error("Usersnot found.");
+        throw new Error("User snot found.");
       }
       creator.createdEvents.push(event);
       await creator.save();
