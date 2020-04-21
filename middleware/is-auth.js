@@ -10,14 +10,14 @@ module.exports = (req, res, next) => {
       const token = authHeader.split(' ')[1];//Authorizatiuon
 
       if (!token || token === "") {
-            console.log("elses")
+            console.log("else")
             req.isAuth = false
             next()
       }
       let decodedToken;
       try {
             decodedToken = jwt.verify(token, 'somesuperscretkey')
-            console.log("decodedToken", decodedToken)
+            console.log("aut h token", decodedToken)
       } catch (err) {
             console.log("exddrer")
             req.isAuth = false
