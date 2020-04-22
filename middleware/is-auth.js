@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
       const token = authHeader.split(' ')[1];//Authorizatiuon
 
       if (!token || token === "") {
-            console.log("elsze")
+            console.log("elsz")
             req.isAuth = false
             next()
       }
