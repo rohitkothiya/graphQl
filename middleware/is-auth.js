@@ -1,6 +1,6 @@
 module.exports = (req, res, next) => {
       const authHeader = req.get('Authorization')
-      console.log("authHeader", authHeader)
+      console.log("authHeaders", authHeader)
       if (!authHeader) {
             req.isAuth = false
 
