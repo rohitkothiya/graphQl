@@ -22,7 +22,7 @@ module.exports = {
       description: args.eventInput.description,
       price: +args.eventInput.price,
       date: new Date(args.eventInput.date),
-      creator: "5e4b824b7623400d7a111f77"
+      creator: "5e4b824b7623400d7a111f77e"
     });
     let createdEvent;
     try {
