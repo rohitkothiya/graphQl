@@ -32,7 +32,7 @@ module.exports = {
     const isEqual = await bcrypt.compare(password, user.password);
 
     if (!isEqual) {
-      throw new Error("Password is incorrect");
+      throw new Error("Passwords is incorrect");
     }
     const token = jwt.sign(
       { userId: user.id, email: user.email },
