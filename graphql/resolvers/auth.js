@@ -36,7 +36,7 @@ module.exports = {
     }
     const token = jwt.sign(
       { userId: user.id, email: user.email },
-      "somesuperkeya",
+      "somesuperkey",
       {
         expiresIn: "1h"
       }
